@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ArticleRenderer = ({article}: {article: Article}) => {
+return(
     <>
         <div className="flex w-11/12 md:w-5/6 xl:w-5/6 mx-auro flex-col lg:min-h-fit mt-10 lg:pt-8 pb-8 border-t-8 border-white lg:mt-8 lg:flex-row bg-soft">
             <div className="flex-1 order-1 self-center flex">
@@ -20,5 +21,6 @@ const ArticleRenderer = ({article}: {article: Article}) => {
             </div>
         </div>
     </>
+)
 }
 export default ArticleRenderer
