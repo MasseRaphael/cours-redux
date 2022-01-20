@@ -20,9 +20,9 @@ export default function Home() {
             value={code}
             >
               {options.map((options, index) => (
-                <options key={index} value={options.value}>
+                <option key={index} value={options.value}>
                   {options.label}
-                </options>
+                </option>
               ))}
             </select>
         </div>
