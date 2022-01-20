@@ -19,6 +19,10 @@ return(
                     />
                 </div>
             </div>
+            <div className="flex-1 order-2 self-center items-center flex flex-col p-5">
+                <h1>{article.title}</h1>
+                <p className="min-h-screen">{article.description}</p>
+            </div>
         </div>
     </>
 )

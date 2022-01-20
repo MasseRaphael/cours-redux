@@ -1,7 +1,8 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Api, Article, Category } from "../../typings/api";
 import Head from "next/head";
 import ArticleRenderer from "../../components/articleRenderer";
+import Layout from '../../components/layout.js';
 
 const client = new Api();
 
@@ -9,17 +10,17 @@ const ArticlePage: NextPage<{ article: Article; categories: Category}> = ({
     article, categories
 }) => {
     return(
-        <>
+        <Layout categories={categories}>
             <Head>
                 <title>{article.seo.metaTitle}</title>
-                <meta name='title' content={article.seo?.metaTitle} />
+                <meta name='title' content={article.seo.metaTitle} />
             </Head>
             <ArticleRenderer article={article} />
-        </>
+        </Layout>
     )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     const { data: pages } = await client.articles.articlesList();
 
     const paths = pages.map((article) => ({
